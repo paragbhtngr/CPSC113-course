@@ -2,8 +2,16 @@
 
 <div>
   We currently have {{userCount}} users.
+  {{#if currentUser}}
+    Your name is <b>{{currentUser.name}}</b>
+  {{/if}}
 </div>
 
+{{#if errors}}
+<div style="color: red">
+  {{errors}}
+</div>
+{{/if}}
 <div>
   <form action="/user/login" method="post" class="login-form hidden" style="display: block;">
     <input name="email" type="email" class="text-input" placeholder="email">
