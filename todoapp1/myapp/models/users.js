@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/social-todo');
+mongoose.connect(process.env.MONGO_URL);
 
 var Schema = mongoose.Schema,
     ObjectID = Schema.ObjectID;
@@ -15,7 +15,8 @@ var UserSchema = new Schema({
     type: String,
     minlength: 1,
     maxlength: 50,
-    lowercase: true
+    lowercase: true,
+    unique: true
   },
   name: stringField,
   hashed_password: stringField
